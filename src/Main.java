@@ -8,9 +8,19 @@ public class Main {
      * zip(myArray1, myArray2) → {1,3,5,7,9,2,4,6,8,10,12,14,16}
      */
     public static int[] combine(int[] array1, int[] array2) {
+        int length1 = array1.length;
+        int length2 = array2.length;
+        int[] combinedArray = new int[length1 + length2];
 
-        return null;
+        for (int i = 0; i < length1; i++) {
+            combinedArray[i] = array1[i];
+        }
 
+        for (int i = 0; i < length2; i++) {
+            combinedArray[length1 + i] = array2[i];
+        }
+
+       return combinedArray;
     }
 
     /**
@@ -21,9 +31,15 @@ public class Main {
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] zip(int[] array1, int[] array2) {
+        int length = array1.length;
+        int[] zippedArray = new int[length * 2];
 
-        return null;
+        for (int i = 0; i < length; i++) {
+            zippedArray[i * 2] = array1[i];
+            zippedArray[i * 2 + 1] = array2[i];
+        }
 
+        return zippedArray;
     }
 
     /**
@@ -34,9 +50,14 @@ public class Main {
      * product(myArray1, myArray2) → {2,12,30,56,90}
      */
     public static int[] product(int[] array1, int[] array2) {
+        int length = array1.length;
+        int[] productArray = new int[length];
 
-        return null;
+        for (int i = 0; i < length; i++) {
+            productArray[i] = array1[i] * array2[i];
+        }
 
+        return productArray;
     }
 
     /**
@@ -56,15 +77,25 @@ public class Main {
      * capitalCount(words) → {1, 2, 2, 0}
      */
     public static int[] capitalCount(String[] words) {
+        int[] capitalCounts = new int[words.length];
 
-        return null;
+        for (int i = 0; i < words.length; i++) {
+            capitalCounts[i] = countCapitalLetters(words[i]);
+        }
 
+        return capitalCounts;
     }
 
     public static int countCapitalLetters(String word) {
+        int count = 0;
 
-        return 0;
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            if (Character.isAlphabetic(ch) && Character.isUpperCase(ch)) {
+                count++;
+            }
+        }
 
+        return count;
     }
-
 }
